@@ -3,11 +3,22 @@
   <header class="page-header text-start">
     <h1>Dashboard</h1>
   </header>
-
-  <h3>Total number of Products</h3>
-  <p><%= @products_count %></p>
- 
-  <h3>Total number of Categories</h3> 
-  <p><%= @categories_count %></p>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card text-success h-100 justify-content-center text-decoration-none">
+        <h3 class='card-title'>Total number of Products</h3>
+        <p class='card-text fs-2'><%=@products_count%></p>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card text-success">
+        <div class="card-body">
+          <h3 class='card-title'>Total number of Categories</h3> 
+          <p class='card-text fs-2'><%= @categories_count %></p>
+        </div>
+      </div>
+      </div>
+  </div>
        
 </section>
