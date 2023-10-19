@@ -1,2 +1,28 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<section class="user-sign-up">
+
+  <header class="page-header">
+    <h1>Signup!</h1>
+  </header>
+
+  <%= form_for :user, url: '/users' do |form| %>
+
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+
+    <%= form.submit "Submit" %>
+
+  <% end %>
+
+</section>
