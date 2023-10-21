@@ -3,9 +3,15 @@
   <header class="page-header">
     <h1>Login</h1>
   </header>
+
+
   <div class="col-sm-6 col-sm-offset-1">
     <%= form_with url: login_path do |form|%>
 
+      <% flash.each do |type, msg| %>
+        <%= render 'flash', type:type, msg:msg %>
+      <% end %>
+      
       <div class="form-group mb-2">
         <%= form.label :email %>
         <%= form.text_field :email, class: 'form-control' %>
