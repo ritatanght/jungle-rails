@@ -133,12 +133,13 @@ RSpec.describe User, type: :model do
     end
 
     it "return a user instance when email is input with a wrong case" do
-      @user = User.authenticate_with_credentials("AJ123@email.com", "Pass123")
+      User.create(first_name: "Michael", last_name: "Anderson", email: "MA123@EmAil.com", password:"Pass123", password_confirmation:"Pass123")
       
+      @user = User.authenticate_with_credentials("ma123@eMail.com", "Pass123")
       expect(@user).to be_a User
-      expect(@user.first_name).to eq "Alice"
-      expect(@user.email).to eq "aj123@email.com"
+      expect(@user.first_name).to eq "Michael"
+      expect(@user.email).to eq "MA123@EmAil.com"
     end
-
+  
   end
 end
