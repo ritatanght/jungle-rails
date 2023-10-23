@@ -124,5 +124,21 @@ RSpec.describe User, type: :model do
       expect(@user).to be nil
     end
 
+    it "return a user instance when email is input with leading and trailing spaces" do
+      @user = User.authenticate_with_credentials(" aj123@email.com  ", "Pass123")
+      
+      expect(@user).to be_a User
+      expect(@user.first_name).to eq "Alice"
+      expect(@user.email).to eq "aj123@email.com"
+    end
+
+    it "return a user instance when email is input with a wrong case" do
+      @user = User.authenticate_with_credentials("AJ123@email.com", "Pass123")
+      
+      expect(@user).to be_a User
+      expect(@user.first_name).to eq "Alice"
+      expect(@user.email).to eq "aj123@email.com"
+    end
+
   end
 end
