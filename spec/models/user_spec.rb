@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+
   describe "Validations" do
+    before(:all){ User.destroy_all }
+
     describe "password and password_confirmation fields" do
       it "create a new user when the two fields match" do
         @user = User.new(first_name: "Alice", last_name: "Johnson", email: "aj123@email.com", password:"Pass123", password_confirmation:"Pass123")
@@ -38,7 +41,7 @@ RSpec.describe User, type: :model do
     end
 
     describe "email must be unqiue" do
-      before(:each) do
+      before(:all) do
         User.create(first_name: "Alice", last_name: "Johnson", email: "aj123@email.com", password:"Pass123", password_confirmation:"Pass123")
       end
 
@@ -90,6 +93,36 @@ RSpec.describe User, type: :model do
       expect(result).to be false
       expect(@user.errors.full_messages).to include "Password is too short (minimum is 4 characters)"
     end   
+
+  end
+
+
+  describe '.authenticate_with_credentials' do
+    before(:all) do
+      User.create(first_name: "Alice", last_name: "Johnson", email: "aj123@email.com", password:"Pass123", password_confirmation:"Pass123")
+    end
+
+    it "return a user instance when correct email and password is input" do
+      @user = User.authenticate_with_credentials("aj123@email.com", "Pass123")
+
+      expect(@user).to be_a User
+      expect(@user.first_name).to eq "Alice"
+      expect(@user.email).to eq "aj123@email.com"
+    end
+
+    it "return nil when incorrect email is input" do
+      @user = User.authenticate_with_credentials("wrong@email.com", "Pass123")
+      
+      expect(@user).not_to be_a User
+      expect(@user).to be nil
+    end
+
+    it "return nil when incorrect password is input" do
+      @user = User.authenticate_with_credentials("aj123@email.com", "Pass")
+      
+      expect(@user).not_to be_a User
+      expect(@user).to be nil
+    end
 
   end
 end
