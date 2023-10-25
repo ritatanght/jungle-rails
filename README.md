@@ -1,6 +1,29 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Ruby on Rails that allows visitors or registered users to view and purchase products.
+
+## Screenshots
+
+Homepage
+!["Homepage for a logged in user"](./docs/jungle-homepage.png)
+
+Product Page
+!["A Product view page"](./docs/jungle-product-page.png)
+
+Cart View Page
+!["The view cart page"](./docs/jungle-cart.png)
+
+View Order Page
+!["Order page after payment"](./docs/jungle-order-view-page.png)
+
+Admin Dashboard (These admin routes require authentication)
+!["Admin dashboard"](./docs/jungle-admin-dashboard.png)
+
+Admin Products View
+!["Admin edit products page"](./docs/jungle-admin-edit-products.png)
+
+Admin Categories View
+!["Admin add categories page"](./docs/jungle-admin-add-categories.png)
 
 ## Setup
 
@@ -25,7 +48,13 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
+- Ruby 3.1
 - Rails 6.1 [Rails Guide](http://guides.rubyonrails.org/v6.1/)
 - Bootstrap 5
 - PostgreSQL 9.x
+- Sass Rails
+- Font Awesome Rails
+- RMagick
+- Money Rails
+- Bcrypt 3.1
 - Stripe
