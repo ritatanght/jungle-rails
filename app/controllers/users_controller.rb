@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    @errors = flash[:errors]
   end
 
   def create
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:errors] = @user.errors.full_messages
       redirect_to signup_path
     end
   end
