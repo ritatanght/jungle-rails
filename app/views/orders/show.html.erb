@@ -3,6 +3,11 @@
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
+
+  <% flash.each do |type, msg| %>
+    <%= render 'flash', type: type, msg: msg %>
+  <% end %>
+  
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
     <p class="text-primary fs-4"><%= @order.email %></p>
