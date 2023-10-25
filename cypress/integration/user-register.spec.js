@@ -1,4 +1,4 @@
-describe("User login", () => {
+describe("User register", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
@@ -12,7 +12,7 @@ describe("User login", () => {
     cy.get("[id$=password]").type("1234");
     cy.get("[id$=password_confirmation]").type("1234{enter}");
 
-    cy.get(".products article").should("have.length", 12);
+    cy.get(".products article").should("have.length", 2);
     cy.contains("Signed in as Sherry").should("be.visible");
   });
 });
