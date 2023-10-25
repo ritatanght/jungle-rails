@@ -38,6 +38,7 @@ end
 
 CypressRails.hooks.before_server_stop do
   # Called once, at_exit
+  User.find_by(first_name: "Sherry")&.destroy
   DatabaseCleaner.clean
 end
 
