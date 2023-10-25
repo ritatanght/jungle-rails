@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Ruby on Rails that allows visitors or registered users to view and purchase products.
+A mini e-commerce application built with Ruby on Rails that allows visitors or registered users to view and purchase products. The admin after authentication can add/delete products and add new categories to the site.
 
 ## Screenshots
 
